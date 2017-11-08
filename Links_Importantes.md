@@ -9,7 +9,7 @@ referência como recursos, instaladores, etc.
 ## PostgreSQL
 -------------------------------------------------
 
-* [[Sítio Oficial PostgreSQL|www.postgresql.org]]
+* [Sítio Oficial PostgreSQL](www.postgresql.org)
 * [[PostgreSQL Extension Network]]
 
 ## PostGIS
