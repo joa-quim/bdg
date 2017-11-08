@@ -9,4 +9,4 @@ e serão apresentados os exercícios aos alunos.
 
 ## Tópicos
 
-### [Tópico I](aula01)
+### [Tópico I](https://github.com/joa-quim/bdg/blob/master/aula01.md)
