@@ -10,27 +10,27 @@ referência como recursos, instaladores, etc.
 -------------------------------------------------
 
 * [Sítio Oficial PostgreSQL](http://www.postgresql.org)
-* [[PostgreSQL Extension Network]]
+* [PostgreSQL Extension Network]]
 
 ## PostGIS
 -------------------------------------------------
 
-* [[Sítio Oficial PostGIS|www.postgis.org]]
+* [Sítio Oficial PostGIS](http://www.postgis.org)
 
 ## GEOS
 -------------------------------------------------
 
-* [[Sítio Oficial GEOS|www.geos.org]]
+* [Sítio Oficial GEOS](http://www.geos.org)
 
 ## Proj4
 -------------------------------------------------
 
-* [[Sítio Oficial Proj4|www.proj4.org]]
+* [Sítio Oficial Proj4](http://www.proj4.org)
 
 # Recursos diversos
 
 ## Spatial References.org
 
-* [[Site Spatial References|www.spatialreferences.org]]
+* [Site Spatial References](http://www.spatialreferences.org)
 
 Sítio fantástico com registro de (quase) todos os sistemas de referência utilizados mundo fora.
