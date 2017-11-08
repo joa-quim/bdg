@@ -5,7 +5,7 @@ e serão apresentados os exercícios aos alunos.
 
 ## Links importantes
 
-[Links](https://github.com/joa-quim/bdg/Links_Importantes)
+[Links](https://github.com/joa-quim/bdg/Links_Importantes.md)
 
 ## Tópicos
 
