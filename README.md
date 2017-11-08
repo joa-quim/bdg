@@ -5,7 +5,7 @@ e serão apresentados os exercícios aos alunos.
 
 ## Links importantes
 
-[Links](@ref Links Importantes)
+[Links](Links_Importantes)
 
 ## Tópicos
 
