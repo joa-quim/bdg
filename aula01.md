@@ -695,4 +695,4 @@ Tabela vazia
 
 # Exercícios para a semana
 
-## [[Exercícios Aula 01|exercicios_aula01]]
+## [Exercícios Topico I](https://github.com/joa-quim/bdg/blob/master/exercicios/exercicios_aula01)
