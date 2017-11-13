@@ -99,10 +99,11 @@
 
 # shp2pgsql - redirecionando a saída
 
-* usar somente o comando shp2pgsql imprime os comandos sql na tela;
+* usando o comando shp2pgsql, ele imprime os comandos sql no ecran;
 
 ```bash
 	shp2pgsql -W "LATIN1" municipios.shp
+	...
 	SET CLIENT_ENCODING TO UTF8;
 	SET STANDARD_CONFORMING_STRINGS TO ON;
 	BEGIN;
@@ -134,9 +135,9 @@
 
 * o único parâmetro obrigatório é o shapefile;
 
-* podemos especificar uma ou mais opções, ANTES de especificar qual é o shapefile;
+* podem-se especificar uma ou mais opções, ANTES de se especificar qual é o shapefile;
 
-* podemos escolher um nome de tabela ou *schema*. P nome da tabela não é obrigatório e o shp2pgsql tentará gerá-lo para nós;
+* pode-se escolher um nome de tabela ou *esquema*. O nome da tabela não é obrigatório e o shp2pgsql tentará gerá-lo para nós;
 
 ---
 
@@ -146,6 +147,7 @@
 
 ```bash
 	shp2pgsql -W "LATIN1" municipios.shp
+	
 	SET CLIENT_ENCODING TO UTF8;
 	SET STANDARD_CONFORMING_STRINGS TO ON;
 	BEGIN;
@@ -161,10 +163,11 @@
 
 ---
 
-* -a append nos dados - este comando só será bem sucedido. Note a falta do comando CREATE TABLE;
+* -a *append* aos dados. Note a falta do comando CREATE TABLE;
 
 ```bash
 	shp2pgsql -a -W "LATIN1" municipios.shp > municipio.sql
+	
 	SET CLIENT_ENCODING TO UTF8;
 	SET STANDARD_CONFORMING_STRINGS TO ON;
 	BEGIN;
@@ -175,10 +178,11 @@
 
 ---
 
-* -d drop (apaga uma tabela de mesmo nome) a tabela antiga antes de criá-la novamente - note o comando de drop column e drop table;
+* -d drop (apaga uma tabela de mesmo nome) a tabela antiga antes de criá-la novamente - note o comando de drop table;
 
 ```bash
 	shp2pgsql -d -W "LATIN1" municipios.shp > data/municipio.sql
+	
 	SET CLIENT_ENCODING TO UTF8;
 	SET STANDARD_CONFORMING_STRINGS TO ON;
 	SELECT DropGeometryColumn('','municipios','the_geom');
@@ -196,10 +200,11 @@
 
 ---
 
-* -p cria somente o contentor, neste caso, somente a tabela e suas colunas - não existem dados importados neste ficheiro;
+* -p cria apenas o contentor, neste caso, apenas a tabela e as suas colunas - não existem dados importados neste ficheiro;
 
 ```bash
 	shp2pgsql -p -W "LATIN1" municipios.shp > municipio.sql
+
 	SET CLIENT_ENCODING TO UTF8;
 	SET STANDARD_CONFORMING_STRINGS TO ON;
 	BEGIN;
@@ -210,7 +215,7 @@
 	SELECT AddGeometryColumn('','municipios','the_geom','-1','MULTIPOLYGON',2);
 	COMMIT;
 	#
-	# fim do arquivo
+	# fim do ficheiro
 ```
 
 * estas opções são _mutualmente_ exclusivas, ou seja, só podemos usar uma de cada vez;
@@ -221,10 +226,10 @@
 
 * a opção -W determina qual será o *encoding* de origem dos dados.
 
-* esta opção é importante para lermos os dados corretamente e não recebermos caracteres estranhos
-na nossa base de dados;
+* esta opção é importante para se ler os dados corretamente e não receber caracteres estranhos
+na base de dados;
 
-* para utilizar esta opção, usamos o _switch_ -W e a especificação do encoding (equivalente ao _PostgreSQL_).
+* para utilizar esta opção, usa-se o _switch_ -W e a especificação do encoding (equivalente ao _PostgreSQL_).
 
 * *encodings* válidos e mais comuns: UTF-8 (default), LATIN1, WIN1252 (obsoleto);
 
@@ -240,6 +245,7 @@ na nossa base de dados;
 
 ```bash
 	shp2pgsql -s 4291 -W "LATIN1" municipios.shp > municipio.sql
+
 	SET CLIENT_ENCODING TO UTF8;
 	SET STANDARD_CONFORMING_STRINGS TO ON;
 	BEGIN;
@@ -254,7 +260,7 @@ na nossa base de dados;
 
 ---
 
-# shp2pgsql - reprojetando automaticamente
+# shp2pgsql - reprojectando automaticamente
 
 * Use a opção -s com o formato ```-s DE_SRID>PARA_SRID```;
 
@@ -262,6 +268,7 @@ na nossa base de dados;
 
 ```bash
 	shp2pgsql -s 4291>4326 -W "LATIN1" municipios.shp > municipio.sql
+
 	SET CLIENT_ENCODING TO UTF8;
 	SET STANDARD_CONFORMING_STRINGS TO ON;
 	BEGIN;
@@ -282,9 +289,9 @@ na nossa base de dados;
 
 * -g "nome_coluna" : escolhe o nome da coluna que receberá os dados geoespaciais;
 
-* -w : usa o formato WKT para construção das geometrias (ex: 'POINT(-12.1 -24.4)') - aviso: este _switch_ é útil, mas ele pode introduzir pequenas mudanças nas geometrias, devido ao arredondamento e ele dropa os valores M;
+* -w : usa o formato WKT para construção das geometrias (ex: 'POINT(-12.1 -24.4)') - aviso: este _switch_ é útil, mas ele pode introduzir pequenas mudanças nas geometrias, devido ao arredondamento.
 
-* -D : gera a saída como um dump do _PostgreSQL_;
+* -D : gera a saída como um *dump* do _PostgreSQL_;
 
 * -t <valor> : Força a saída da geometria em determinada dimensionalidade (2d, 3d, 4d);
 
@@ -292,24 +299,24 @@ na nossa base de dados;
 
 # shp2pgsql - exercícios
 
-* vamos importar os dados de municipios, como nos exemplos acima.
+* importar os dados de municipios, como nos exemplos acima.
 
-* gere um arquivo sql. use as opções -s e -W para configurar corretamente o sistema de referência e o encoding;
+* gere um ficheiro sql, use as opções -s e -W para configurar corretamente o sistema de referência e o encoding;
 
-* coloque o na pasta ```/home/george/Desktop/curso-postgis/src/exericios/aula01/```;
+* coloque-o na pasta ```curso-postgis/exericios/aula01/```;
 
 ---
 
 # shp2pgsql - carga
 
-* o utilitário não carrega nada na base de dados. ele apenas gera os dados em formato .sql;
+* o utilitário não carrega nada na base de dados, ele apenas gera os dados em formato .sql;
 
-* para carga, usaremos o utilitário psql (ou o pgAdmin 3 - o que você preferir);
+* para carga, usaremos o utilitário psql (ou o pgAdmin 4 - o que preferir);
 
 ```bash
-sudo postgres
-# insira sua senha :D
-psql -d curso_postgis -f /home/george/Desktop/curso-postgis/src/exercicios/aula01/municipios.sql
+# postgres
+# insira sua senha
+psql -d curso_postgis -f curso-postgis/exercicios/aula01/municipios.sql
 ```
 
 ---
@@ -317,7 +324,7 @@ psql -d curso_postgis -f /home/george/Desktop/curso-postgis/src/exercicios/aula0
 
 # pgsql2shp
 
-* da mesma forma que temos um importador disponível, temos um exportador;
+* da mesma forma que existe um importador, existe também um exportador;
 
 * funciona de forma análoga ao importador: é um utilitário de linha de comando que pode exportar tabelas para shapefile;
 
@@ -328,7 +335,7 @@ psql -d curso_postgis -f /home/george/Desktop/curso-postgis/src/exercicios/aula0
 
 * construir tabelas novas é tão simples quanto importar os dados;
 
-* para isso usamos o psql ou o pgAdmin 3 - conectem à base curso_postgis pela ferramenta da sua preferência;
+* para isso usamos o psql ou o pgAdmin 4 - conectem à base curso_postgis pela ferramenta da sua preferência;
 
 * iremos criar uma tabela de pontos para armazenar as sedes municipais;
 
@@ -350,13 +357,13 @@ geometria GEOMETRY NOT NULL
 -- inserir um ponto
 INSERT INTO sede_municipal (id,nome,geometria) VALUES (DEFAULT,'olá mundo',ST_GeomFromText('POINT(0 0)'));
 
--- inserir uma linha, hey espere, estamos falando de pontos!
+-- inserir uma linha, Ah espere, estamos a falar de pontos!
 INSERT INTO sede_municipal (id,nome,geometria) VALUES (DEFAULT,'linha',ST_GeomFromText('LINESTRING(0 0,1 1)'));
 ```
 
 * ao executarmos este comando, inserimos duas novas sedes, uma de pontos e uma de linha;
 
-* o PostGIS, por default, não força o utilozador a armazenar sempre o mesmo tipo de geometria na coluna.
+* o PostGIS, por default, não força o utilizador a armazenar sempre o mesmo tipo de geometria na coluna.
 
 ---
 
@@ -370,15 +377,15 @@ SELECT *, ST_AsText(geometrias) FROM sede_municipal;
 -- 2;"linha";"01020000000200000000000000000000000000000000000000000000000000F03F000000000000F03F";"LINESTRING(0 0,1 1)"
 ```
 
-* esta coluna não tem SRID definido;
+* Esta coluna não tem SRID definido;
 
-* forma correta de criação de colunas geoespaciais é através de uma função, que além de adicionar a coluna, adiciona três restrições à entrada dos dados;
+* A forma correta de criar colunas geoespaciais é através de uma função, que além de adicionar a coluna, adiciona três restrições à entrada dos dados;
 
-* Tipo da geometria deve ser único; Geometrias de tipos diferentes do especificado serão barrados;
+* Tipo da geometria deve ser único; Geometrias de tipos diferentes do especificado serão impedidos;
 
-* Restrição de SRID. Geometrias de SRID diferentes serão barrados;
+* Restrição de SRID. Geometrias de SRID diferentes serão bloqueadas;
 
-* Geometrias com um número de dimensões diferente serão barradas;
+* Geometrias com um número de dimensões diferente serão bloqueadas;
 
 ---
 
@@ -391,7 +398,7 @@ id SERIAL PRIMARY KEY,
 nome VARCHAR(128) NOT NULL
 );
 
--- parametros: schema, tabela, nome coluna geoespacial, srid, tipo geometria e número de dimensões
+-- parâmetros: esquema, tabela, nome coluna geoespacial, srid, tipo geometria e número de dimensões
 SELECT * FROM AddGeometryColumn('public','sede_municipal','geometria',4291,'POINT',2);
 -- "public.sede_municipal.geometria SRID:4291 TYPE:POINT DIMS:2 "
 ```
@@ -457,7 +464,7 @@ INSERT INTO sede_municipal (id,nome,geometria) VALUES (DEFAULT,'olá mundo cruel
 
 * Esta função aceita uma string (delimitada por aspas simples) e aceita o formato POINT(x y);
 
-* Coloque o script que completo na pasta ```/home/george/Desktop/curso-postgis/exercicios/aula01/construcao-tabela-geo/```;
+* Coloque o script que completo na pasta ```curso-postgis/exercicios/aula01/construcao-tabela-geo/```;
 
 
 ---
