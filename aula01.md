@@ -1,4 +1,18 @@
+# Instalação do PostGIS
 
+Tem de instalar a extensão PostGIS do PostgreSQL. Infelizmente a informação de como o fazer
+pode ser um bocadito confusa. Este tutorial pode ser-lhe útil.
+http://www.bostongis.com/PrinterFriendly.aspx?content_name=postgis_tut01
+
+Depois, se o seu pgAdmin não mostrar o PostGIS server
+
+A partir do psql execute estes dois comandos para activar a extensão PostGIS.
+(https://stackoverflow.com/questions/24981784/how-do-i-add-postgis-to-postgresql-pgadmin#27785394)
+
+```
+CREATE EXTENSION postgis;
+CREATE EXTENSION postgis_topology;
+```
 
 # PostGIS
 
@@ -46,6 +60,15 @@
 
 ![Janela pgAdmin 3 - template banco](img/aula01/aula01-template-pgadmin.png)
 
+## Se o seu pgAdmin não mostrar o PostGIS server
+
+A partir do psql execute estes dois comandos para activar a extensão PostGIS.
+(https://stackoverflow.com/questions/24981784/how-do-i-add-postgis-to-postgresql-pgadmin#27785394)
+
+```
+CREATE EXTENSION postgis;
+CREATE EXTENSION postgis_topology;
+```
 ---
 
 # Conversão de dados (shp2pgsql)
