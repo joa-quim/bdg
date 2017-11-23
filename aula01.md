@@ -326,8 +326,6 @@ na base de dados;
 
 * gere um ficheiro sql, use as opções -s e -W para configurar corretamente o sistema de referência e o encoding;
 
-* coloque-o na pasta ```curso-postgis/exericios/aula01/```;
-
 ---
 
 # shp2pgsql - carga
@@ -339,7 +337,7 @@ na base de dados;
 ```bash
 # postgres
 # insira sua senha
-psql -d curso_postgis -f curso-postgis/exercicios/aula01/municipios.sql
+psql -d curso_postgis -f municipios.sql
 ```
 
 ---
@@ -374,7 +372,7 @@ geometria GEOMETRY NOT NULL
 
 # Construção de tabelas geoespaciais - forma simples, mas 'errada'
 
-* esta é uma forma de criar uma tabela. mas existem desvantagens com esta perspectiva;
+* esta é uma forma de criar uma tabela, mas existem desvantagens com esta perspectiva;
 
 ```sql
 -- inserir um ponto
